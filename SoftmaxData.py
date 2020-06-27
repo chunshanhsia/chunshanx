@@ -1,7 +1,7 @@
 import array
 ### Question 1
 
-### use an extry array to hold the last shift.  For each step, copy and insert it into X, then update it, and then copy and insert it into Y
+### using an extry array to hold the last shift.  For each step, copy and insert the last shift array into X, then update it, and then copy and insert it into Y
 ### pros: simple logic, easy to understanding, easy to maintain
 ### cons: used extra moemory to hold the last shift tempary array. And the copy operation may consume more cpu time.
 ### time complexity: n*(n+1)/2 ==> O(n*n)
@@ -38,11 +38,11 @@ def foo_1(xs, start_token=-1, placeholder=-3):
 
 
 
-### initilize 2 2-dimention array X and Y, then update each one step by step.
+### initilized two 2-dimention arraies X and Y, then update them step by step.
 ### comaring with solution 1 (foo_1)
-### pros: no extra memory used, and avoid arry copy operation to have beter performance
+### pros: no extra memory used, and avoid arry copy operation to have better performance
 ### cons:  code logic become little more complex than solution 1.
-### time complexity: n*(n+1)/2 ==> O(n*n)
+### time complexity: average n*(n+1)/2 ==> O(n*n)
 ### space complexity: 2* n*n ==>  O(n*n)
 def foo_2(xs, start_token=-1, placeholder=-3):
     size = len(xs)
@@ -76,8 +76,8 @@ def foo_2(xs, start_token=-1, placeholder=-3):
     print()    
 
 
-### Since Y holds all of the data  X has except X[0], they same portion could be shared 
-### pros: reduced memory space from 2*n*n into n*(n+1), as well as good performance as solution 2 does
+### Since Y holds all of the data  X has except X[0], they same portion could be shared by each other
+### pros: reduced memory space from 2*n*n into n*n + n, as well as good performance as solution 2 does
 ### cons: programmer needs to know how the array memeory is managed
 ### time complexity: n*(n+1)/2 ==> O(n*n)
 ### space complexity: n*(n+1) ==>  O(n*n)
@@ -120,10 +120,10 @@ foo_3(arr)
 
 ### Question 2
 
-### use an extry array to map the times of each element appears in the arry 
+### using an extra array to map the times of each element appeared in the input arry 
 ### pros: simple logic, good performance
 ### cons: used extra moemory to count each element.
-### time complexity: 3*n ==> O(n*n)
+### time complexity: 2.5*n ==> O(n)
 ### space complexity: n ==>  O(n)
 def find_missing_dup_1(arr): 
     size = len(arr)       
@@ -169,7 +169,7 @@ def find_missing_dup_1(arr):
 
 ### sorting the array first 
 ### pros: simple
-### cons: used extra for sorting
+### cons: used extra time for sorting, performance got slower
 ### time complexity: n*Log(n) + n/2  ==> O(n*Log(n))
 ### space complexity: no extra space needed
 def find_missing_dup_2(arr): 
@@ -200,16 +200,17 @@ def find_missing_dup_2(arr):
 
 ### XOR  
 ### 1. Let x and y be the desired output elements.
-### 2. Calculate XOR of all the array elements. xorResult = arr[0]^arr[1]^arr[2]…..arr[n-1]
+### 2. XOR of all the array elements. xorResult = arr[0]^arr[1]^arr[2]…..arr[n-1]
 ### 3. XOR the result (xorResult) with all numbers from min to max
-### 4. In the result (xorResult), all elements would be nullified by itself except x and y. All the bits that are set in xorResult will be set in either x or y. 
-### So if we take any set bit (I have chosen the rightmost set bit in code) of xorResult and then divide the elements of the array in two sets – 
+### 4. The result (xorResult) is x XOR y, because all elements are nullified (be 0) by themsevies. Hence, all the bits that are set in xorResult will be set in either x or y. 
+### but, not set in both. So if we take any set bit (I have chosen the rightmost set bit in code) of xorResult and then divide the elements of the array in two sets – 
 ### one set of elements with same bit set and other set with same bit not set. By doing so, we will get x in one set and y in another set. 
-### Now if we do XOR of all the elements in first set, we will get x, and by doing same in other set we will get y, then idenfy which is exits in the array or not
+### Now if we do XOR of all the elements in first set, we will get x, and by doing same in other set we will get y, 
+### 5. Idenfy which one is exits in the array, which one is missing from the array
 
-### pros: no extra memory, bitwise operation is fast good performance. 
+### pros: no extra memory, bitwise operation is fast, good performance. 
 ### cons: logic seems complex without in-depth knowledge of bitwise operation
-### time complexity: 3*n  ==> O(n)
+### time complexity: 6*n  ==> O(n)
 ### space complexity: no extra space needed
 def find_missing_dup_3(arr): 
     size = len(arr)
