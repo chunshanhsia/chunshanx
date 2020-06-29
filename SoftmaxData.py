@@ -1,3 +1,45 @@
+### Question 1:
+### Suppose you have an array (length of n) that is a time series data, for example: [1, 2, 3, 4, 5, 6]
+### What I need now is to shift the data and create two separate sets of data: X and Y. Bascially, Y is one timestep lagging behind X. 
+### X on the other hand is an n x n tensor (n rows and n elements) that shift the input data one step at a time and filled the value with a placeholder integer and a starter token. 
+### For example:
+### assuming starter token is -1 and placeholder is -3
+### X is:
+### [-3, -3, -3, -3, -3, -1]
+### [-3, -3, -3, -3, -1, 1]
+### [-3, -3, -3, -1, 1, 2]
+### [-3, -3, -1, 1, 2, 3]
+### [-3, -1, 1, 2, 3, 4]
+### [ -1, 1, 2, 3, 4, 5]
+### Y is:
+### [-3, -3, -3, -3, -1, 1]
+### [-3, -3, -3, -1, 1, 2]
+### [-3, -3, -1, 1, 2, 3]
+### [-3, -1, 1, 2, 3, 4]
+### [ -1, 1, 2, 3, 4, 5]
+### [ 1, 2, 3, 4, 5, 6]
+### Your challenge is to create a function called foo, that intake the array, a starter token value and a placeholder value and produce X and Y:
+### def foo(xs, start_token=-1, placeholder=-3):
+###     pass 
+### Note:
+### 1) Please provider at least 3 solutions
+### 2) Please explain pros, cons, time complexity and space complexity of each solutions
+### 3) Please put this on Github and send me the repo/gist link
+
+### Question 2:
+### You have an randomly ordered array of continueous integeris with a min and a max. One of the element is missing and one of the element is duplicate. You need to write a function that produce the missing and the duplicate. 
+### For example:
+### given [6, 5, 6, 2, 4]
+### The min is 2 (assuming you will loop through the array)
+### The max is 6 (assuming you will loop through the array)
+### Your function will return the missing: 3 and the duplcate: 6
+### def find_missing_dup(x):
+###     pass
+### Note:
+### 1) Please provider at least 3 solutions
+### 2) Please explain pros, cons, time complexity and space complexity of each solutions
+### 3) Please put this on Github and send me the repo/gist link
+
 import array
 ### Question 1
 
