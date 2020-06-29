@@ -153,13 +153,12 @@ def find_missing_dup_1(arr):
             found +=1
             if found == 2:
                 break;    
-        else:
-            if flag[i] == 2:
-                r = i+min
-                print("The repeating element is", r)
-                found +=1
-                if found == 2:
-                    break;
+        elif flag[i] == 2:
+            r = i+min
+            print("The repeating element is", r)
+            found +=1
+            if found == 2:
+                break;
                     
     if found < 2:
         raise Exception(' Invalid input array : {}', arr)
@@ -185,13 +184,12 @@ def find_missing_dup_2(arr):
             found +=1
             if found == 2:
                 break;
-        else:
-            if arr[i] == arr[i-1]:
-                r = arr[i]
-                print("The repeating element is", r) 
-                found +=1
-                if found == 2:
-                    break;
+        elif arr[i] == arr[i-1]:
+            r = arr[i]
+            print("The repeating element is", r) 
+            found +=1
+            if found == 2:
+                break;
  
     if found < 2:
         raise Exception('Invalid input array : {}', arr)
@@ -219,9 +217,8 @@ def find_missing_dup_3(arr):
     for i in range(size):
         if arr[i] < min:
             min = arr[i]
-        else:
-            if arr[i] > max: 
-                max = arr[i]
+        elif arr[i] > max: 
+            max = arr[i]
     
     xorResult = arr[0]
     for i in range(1, size):
@@ -252,19 +249,17 @@ def find_missing_dup_3(arr):
     for i in range(size):
         if arr[i] == x: 
             xIsDup = True
-        else:
-            if arr[i] == x: 
-                yIsDup = True
+        elif arr[i] == x: 
+            yIsDup = True
     
     if xIsDup == True and yIsDup == False:
         print("The missing element is", y)
         print("The repeating element is", x)      
         return ["The missing element is", y, "The repeating element is", x]
-    else:
-        if xIsDup == False and yIsDup == True:
-            print("The missing element is", x)
-            print("The repeating element is", y)      
-            return ["The missing element is", x, "The repeating element is", y]
+    elif xIsDup == False and yIsDup == True:
+        print("The missing element is", x)
+        print("The repeating element is", y)      
+        return ["The missing element is", x, "The repeating element is", y]
     
     raise Exception('Invalid input array : {}', arr)   
     
